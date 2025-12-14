@@ -1,0 +1,7 @@
+{
+  "helloWorld": "Witaj Świecie!",   
+  "userCount_one": "Wczytano {{count}} użytkownika",
+  "userCount_other": "Wczytano {{count}} użytkowników",
+  "errorOccurred": "Wystąpił błąd",
+  "loading": "Ładowanie..."
+}
