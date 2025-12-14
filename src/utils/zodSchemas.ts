@@ -6,3 +6,5 @@ export const UserSchema = z.array(z.object({
     name: z.string().min(1),
     email: z.string().email().min(5),
 }))
+
+export type UserType = z.infer<typeof UserSchema>

@@ -1,8 +1,9 @@
 import { BACKEND_URL } from "@/env";
+import UserData from "@/src/components/UserData";
 import { useStringKeys } from '@/src/i18n/i18nKeys';
 import { QueryFetch } from '@/src/utils/extractedFuntions';
 import { useQuery } from '@tanstack/react-query';
-import { FlatList, Text, View } from 'react-native';
+import { Text } from 'react-native';
 
 export default function User() {
   // do fetchu wykorzystuję funkcję QueryFetch 
@@ -19,21 +20,6 @@ export default function User() {
   if (isError) return <Text>{stringKeys.errorOccurred}</Text>
 
   return (
-    <View className="flex-1 items-center justify-center bg-white">
-      <Text className="text-xl font-bold text-blue-500">{stringKeys.userCount}</Text>
-      {/* Wczytuję wszystkie elementy przekazanych danych */}
-      <FlatList
-          className="flex-1" 
-          data={data}
-          renderItem={({item}) => {  
-            return(
-              <View>
-                <Text>{item.name}, {item.email}</Text>
-              </View>
-            );
-          }}
-          keyExtractor={item => item.id.toString()}
-        />
-    </View>
+    <UserData data={data ?? []}/>
   )
 }
