@@ -1,7 +1,7 @@
 "use client";
 
 // tworzę hook z obiektem zawierającym tłumaczenia aby zapobiec błędom w przyszłości, 
-// np. konieczności zmiany nazwy zmiennej tłumaczenia w każdym pliku
+// np. konieczności zmiany nazwy zmiennej w każdym pliku
 
 import { useTranslation } from "react-i18next";
 
@@ -13,5 +13,8 @@ export function useStringKeys(amount?: number) {
     userCount: t('userCount', {count: amount}),
     errorOccurred: t('errorOccurred'),
     loading: t('loading'),
+    login: t('login'),
+    loginSubmit: t('loginSubmit'),
+    password: t('password')
   };
 }

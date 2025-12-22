@@ -3,5 +3,8 @@
   "userCount_one": "{{count}} User rendered",
   "userCount_other": "{{count}} Users rendered",
   "errorOccurred": "An error occurred",
-  "loading": "Loading..."
+  "loading": "Loading...",
+  "login": "Login",
+  "loginSubmit": "Log in",
+  "password": "Password"
 }

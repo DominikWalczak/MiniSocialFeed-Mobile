@@ -3,5 +3,8 @@
   "userCount_one": "Wczytano {{count}} użytkownika",
   "userCount_other": "Wczytano {{count}} użytkowników",
   "errorOccurred": "Wystąpił błąd",
-  "loading": "Ładowanie..."
+  "loading": "Ładowanie...",
+  "login": "Logowanie",
+  "loginSubmit": "Zaloguj się",
+  "password": "Hasło"
 }
