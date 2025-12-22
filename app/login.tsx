@@ -1,4 +1,7 @@
 import { useStringKeys } from '@/src/i18n/i18nKeys';
+import { validationMiddleware } from '@/src/middlewares/validation.middleware';
+import { mutationFunction } from '@/src/utils/reactUseMutationFunc';
+import { UseMutationSchema } from '@/src/utils/zodSchemas/UseMutationSchema';
 import { useMutation } from '@tanstack/react-query';
 import { useState } from 'react';
 import { Text, TextInput, TouchableOpacity, View } from 'react-native';
@@ -19,13 +22,13 @@ export default function Login() {
         alert(form.email + form.password);
     }
 
-    function handleChange(name, value){
+    function handleChange(name: string, value: string){
         setForm((prev) => ({ ...prev, [name]: value }));
     }
   const loginMutation = useMutation({
         mutationFn: async () => {
           const result = validationMiddleware(UseMutationSchema, {
-            url: `${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/login`, 
+            url: `${process.env.EXPO_PUBLIC_API_URL}/auth/login`, 
               options: {
                 method: "POST",
                 headers: { "Content-Type": "application/json" }, 
@@ -50,7 +53,7 @@ export default function Login() {
 
 
 return (
-    <View className="max-w-md mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
+    <View className="max-w-md mx-6 mt-10 p-6 bg-white rounded-lg shadow-md">
       <Text className="text-2xl font-bold mb-4 text-black">{stringKeys.login}</Text>
 
       <View className="space-y-4">
@@ -63,7 +66,7 @@ return (
             onChangeText={(val) => handleChange('email', val)}
             keyboardType="email-address"
             autoCapitalize="none"
-            placeholder="email@example.com"
+            placeholder="email"
           />
         </View>
 

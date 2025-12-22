@@ -1,5 +1,5 @@
+import UserData from "@/app/components/UserData";
 import { BACKEND_URL } from "@/env";
-import UserData from "@/src/components/UserData";
 import { useStringKeys } from '@/src/i18n/i18nKeys';
 import { QueryFetch } from '@/src/utils/extractedFuntions';
 import { useQuery } from '@tanstack/react-query';

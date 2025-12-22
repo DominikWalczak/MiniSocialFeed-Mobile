@@ -1,6 +1,6 @@
 import { FlatList, Text, View } from 'react-native';
-import { useStringKeys } from '../i18n/i18nKeys';
-import { UserType } from '../utils/zodSchemas';
+import { useStringKeys } from '../../src/i18n/i18nKeys';
+import { UserType } from '../../src/utils/zodSchemas';
 
 type UserDataProps = {
   data: UserType;

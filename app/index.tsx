@@ -1,4 +1,4 @@
-import HelloWorld from "@/src/components/HelloWorld";
+import HelloWorld from "@/app/components/HelloWorld";
 
 export default function Index() {
   return (
