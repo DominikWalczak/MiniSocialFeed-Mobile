@@ -1,7 +1,7 @@
 import UserData from "@/app/components/UserData";
 import { BACKEND_URL } from "@/env";
-import { useStringKeys } from '@/src/i18n/i18nKeys';
-import { QueryFetch } from '@/src/utils/extractedFuntions';
+import { useTranslation } from 'react-i18next';
+import { QueryFetch } from '@/src/utils/extractedFunctions';
 import { useQuery } from '@tanstack/react-query';
 import { Text } from 'react-native';
 
@@ -13,11 +13,11 @@ export default function User() {
     enabled: true,
   });
 
-  // definiuję stringKeys aby uzyskać dostęp do określonych tłumaczeń językowych poprzez obiekt
-  const stringKeys = useStringKeys(data?.length ?? 0);
+  // zmienne tekstowe zależne od wybranego języka przez użytkownika 
+  const { t } = useTranslation();
 
-  if (isLoading) return <Text>{stringKeys.loading}</Text>
-  if (isError) return <Text>{stringKeys.errorOccurred}</Text>
+  if (isLoading) return <Text>{t('loading')}</Text>
+  if (isError) return <Text>{t('errorOccurred')}</Text>
 
   return (
     <UserData data={data ?? []}/>

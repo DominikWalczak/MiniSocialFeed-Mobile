@@ -1,13 +1,13 @@
-"use client";
+
 import { UserSchema } from "./zodSchemas";
 
 // funkcja zewnętrzna służąca do obsługiwania fetchu
 export async function QueryFetch(url: string, options: object) {
   try {
     // weryfikacja czy zmienne oraz następnie response istnieją/mają wartość
-    if(!url && !options) return [];
+    if(!url && !options) throw "url/options don't exist";
     const response = await fetch(url, options);
-    if (!response) return [];
+    if (!response) throw "fetch didn't get the response";
 
     // uzyskanie danych z response
     const json = await response.json();
@@ -22,6 +22,6 @@ export async function QueryFetch(url: string, options: object) {
     return data.data || [];
   } catch (error) {
     console.log("QueryFetch error: " + error);
-    return [];
+    throw error;
   }
 }

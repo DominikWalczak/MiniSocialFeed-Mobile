@@ -6,7 +6,7 @@ export const UseMutationSchema = z.object({
   options: z.object({
     method: z.enum(["GET", "POST", "PUT", "DELETE", "PATCH"]).optional(),
     headers: z.record(z.string(), z.string()).optional(),
-    body: z.any().optional(),
+    body: z.string().optional(),
   }).optional()
 });
 
