@@ -1,4 +1,4 @@
-import { UseMutationType } from "./zodSchemas/UseMutationSchema";
+import { UseMutationType } from "./zodSchemas/Schema";
 
 export async function mutationFunction(object: UseMutationType) {
     

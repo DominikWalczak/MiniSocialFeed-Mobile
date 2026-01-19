@@ -6,5 +6,8 @@
   "loading": "Ładowanie...",
   "login": "Logowanie",
   "loginSubmit": "Zaloguj się",
-  "password": "Hasło"
+  "password": "Hasło",
+  "AuthorsId": "Identyfikator Autora ",
+  "CreatedAt": "Opublikowane ",
+  "PostContent": "Treść "
 }

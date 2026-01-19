@@ -11,3 +11,12 @@ export const UseMutationSchema = z.object({
 });
 
 export type UseMutationType = z.infer<typeof UseMutationSchema>;
+
+export const PostItemSchema = z.array(z.object({
+    id: z.number(),
+    authorId: z.number(),
+    content: z.string(),
+    createdAt: z.string().datetime(),
+}))
+
+export type PostItemType = z.infer<typeof PostItemSchema>;

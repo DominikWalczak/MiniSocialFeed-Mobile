@@ -6,5 +6,8 @@
   "loading": "Loading...",
   "login": "Login",
   "loginSubmit": "Log in",
-  "password": "Password"
+  "password": "Password",
+  "AuthorsId": "Author's Id ",
+  "CreatedAt": "Posted at ",
+  "PostContent": "Content "
 }

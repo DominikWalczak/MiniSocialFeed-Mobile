@@ -10,6 +10,7 @@ import '../globals.css';
 import HelloWorld from './components/HelloWorld';
 import Login from './login';
 import User from './user';
+import Post from './post';
 
 const queryClient = new QueryClient();
 const Stack = createNativeStackNavigator();
@@ -33,7 +34,12 @@ export default function App() {
           <Stack.Screen
             name="Login"
             component={Login}
-            options={{ title: t('login') }}
+            options={{ title: t('Login') }}
+          />
+          <Stack.Screen
+            name="Post"
+            component={Post}
+            options={{ title: t('Post') }}
           />
         </Stack.Navigator>
       </NavigationContainer>

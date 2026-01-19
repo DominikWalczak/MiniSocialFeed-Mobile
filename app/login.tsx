@@ -1,5 +1,5 @@
 import { mutationFunction } from '@/src/utils/reactUseMutationFunc';
-import { UseMutationType } from '@/src/utils/zodSchemas/UseMutationSchema';
+import { UseMutationType } from '@/src/utils/zodSchemas/Schema';
 import { useNavigation } from '@react-navigation/native';
 import { useMutation } from '@tanstack/react-query';
 import { Controller, useForm } from "react-hook-form";
