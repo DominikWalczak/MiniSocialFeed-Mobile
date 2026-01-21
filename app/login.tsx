@@ -52,6 +52,8 @@ export default function Login() {
           })),
         }
       }
+      console.log(data)
+      console.log(dataCheck)
       saveAccessToken(dataCheck.data.data.accessToken)
       saveRefreshToken(dataCheck.data.data.refreshToken)
       navigation.navigate('User');

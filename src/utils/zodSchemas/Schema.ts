@@ -42,6 +42,7 @@ export const LoginDataSchema = z.object({
         accessToken: z.string(),
         refreshToken: z.string(),
         user: z.object({
+            id: z.number(),
             email: z.string(),
         }),
     }),
