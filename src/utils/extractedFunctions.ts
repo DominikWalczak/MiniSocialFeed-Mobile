@@ -1,4 +1,6 @@
-import { z, ZodType} from "zod";
+import * as SecureStore from 'expo-secure-store';
+import { ZodType } from "zod";
+import { UseMutationType } from "./zodSchemas/Schema";
 
 // funkcja zewnętrzna służąca do obsługiwania fetchu
 export async function QueryFetch<T>(url: string, options: object, schema: ZodType<T>): Promise<T> {
@@ -24,4 +26,28 @@ export async function QueryFetch<T>(url: string, options: object, schema: ZodTyp
     console.log("QueryFetch error: " + error);
     throw error;
   }
+}
+export async function saveAccessToken(token: string) {
+  await SecureStore.setItemAsync('accessToken', token);
+}
+export async function saveRefreshToken(token: string) {
+  await SecureStore.setItemAsync('refreshToken', token);
+}
+export async function getAccessToken() {
+  return await SecureStore.getItemAsync('accessToken');
+}
+export async function getRefreshToken() {
+  return await SecureStore.getItemAsync('refreshToken');
+}
+
+export async function mutationFunction(object: UseMutationType) {
+    
+    const result = await fetch(object.url, object.options);
+
+    if (!result.ok) {
+        const error = await result.json().catch(() => ({}));
+        throw error;
+    }
+
+    return result.json();
 }

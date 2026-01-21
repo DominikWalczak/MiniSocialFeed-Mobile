@@ -1,5 +1,5 @@
-import { mutationFunction } from '@/src/utils/reactUseMutationFunc';
-import { UseMutationType } from '@/src/utils/zodSchemas/Schema';
+import { mutationFunction, saveAccessToken, saveRefreshToken } from '@/src/utils/extractedFunctions';
+import { LoginDataSchema, LoginDataType, UseMutationType } from '@/src/utils/zodSchemas/Schema';
 import { useNavigation } from '@react-navigation/native';
 import { useMutation } from '@tanstack/react-query';
 import { Controller, useForm } from "react-hook-form";
@@ -39,9 +39,22 @@ export default function Login() {
       return await mutationFunction(result);
     },
     
-    onSuccess: (data) => {
-      console.log(data);
-      // navigation.navigate('User');
+    onSuccess: (data: LoginDataType) => {
+      const dataCheck = LoginDataSchema.safeParse(data);
+
+      if (!dataCheck.success) {
+        throw {
+        error: "Invalid data",
+          details: dataCheck.error.issues.map(i => ({
+              path: i.path.join('.'),
+              message: i.message,
+              code: i.code,
+          })),
+        }
+      }
+      saveAccessToken(dataCheck.data.data.accessToken)
+      saveRefreshToken(dataCheck.data.data.refreshToken)
+      navigation.navigate('User');
     },
     onError: (error) => {
       console.log(error);
