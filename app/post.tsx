@@ -4,9 +4,9 @@ import { useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 
 
-import { PostItemSchema } from "@/src/utils/zodSchemas/Schema";
+import { PostListSchema } from "@/src/utils/zodSchemas/Schema";
 import { Text, View } from "react-native";
-import PostItem from "./components/PostItem";
+import PostList from "./components/post/PostList";
 
 
 const PostSite = () => {
@@ -25,7 +25,7 @@ const PostSite = () => {
         "Content-Type": "application/json",
         "Authorization": `Bearer ${token}` 
       },
-    }, PostItemSchema)
+    }, PostListSchema)
   },
   enabled: true
   });
@@ -37,7 +37,7 @@ const PostSite = () => {
   if (data) {
     return (
       <View className="flex min-h-screen items-center justify-center">
-          <PostItem data={data}/>
+          <PostList data={data}/>
       </View>
     )
   }

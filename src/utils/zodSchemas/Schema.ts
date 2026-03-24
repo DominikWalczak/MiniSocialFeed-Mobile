@@ -12,30 +12,34 @@ export const UseMutationSchema = z.object({
 
 export type UseMutationType = z.infer<typeof UseMutationSchema>;
 
-export const PostItemSchema = z.array(z.object({
+export const PostItemSchema = z.object({
     id: z.number(),
     authorId: z.number(),
     content: z.string(),
     createdAt: z.string().datetime(),
-}))
+});
 
 export type PostItemType = z.infer<typeof PostItemSchema>;
+
+export const PostListSchema = z.array(PostItemSchema);
+
+export type PostListType = z.infer<typeof PostListSchema>;
 
 export const UserSchema = z.array(z.object({
     id: z.number().min(1),
     name: z.string().min(1),
     email: z.string().email().min(5),
-}))
+}));
 
-export type UserType = z.infer<typeof UserSchema>
+export type UserType = z.infer<typeof UserSchema>;
 
 export const UserMeSchema = z.object({
     email: z.string(),
     name: z.string(),
     vorname: z.string(),
-})
+});
 
-export type UserMeType = z.infer<typeof UserMeSchema>
+export type UserMeType = z.infer<typeof UserMeSchema>;
 
 export const LoginDataSchema = z.object({
     data: z.object({
@@ -47,7 +51,7 @@ export const LoginDataSchema = z.object({
         }),
     }),
     message: z.string()
-})
+});
 
 export type LoginDataType = z.infer<typeof LoginDataSchema>;
 
