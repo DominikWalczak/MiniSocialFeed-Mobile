@@ -9,7 +9,7 @@ function HelloWorld() {
   // definituję navigation aby umozliwić przejście do strony user
   const navigation = useNavigation();
   return (
-    <View className="flex-1 items-center justify-center bg-white">
+    <View className="items-center justify-center bg-white">
       <Text className="text-xl font-bold text-blue-500">
         {t('helloWorld')}
       </Text>

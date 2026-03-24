@@ -7,10 +7,10 @@ import '@/src/i18n/i18n';
 
 import '../globals.css';
 
-import HelloWorld from './components/HelloWorld';
+import Index from './index';
 import Login from './login';
-import User from './user';
 import Post from './post';
+import User from './user';
 
 const queryClient = new QueryClient();
 const Stack = createNativeStackNavigator();
@@ -23,8 +23,8 @@ export default function App() {
         <Stack.Navigator initialRouteName="Home">
           <Stack.Screen
             name="Home"
-            component={HelloWorld}
-            options={{ title: t('helloWorld') }}
+            component={Index}
+            options={{ title: "Index" }}
           />
           <Stack.Screen
             name="User"

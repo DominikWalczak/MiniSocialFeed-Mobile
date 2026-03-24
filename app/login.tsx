@@ -36,6 +36,7 @@ export default function Login() {
           }
         }
 
+    console.log(result);
       return await mutationFunction(result);
     },
     

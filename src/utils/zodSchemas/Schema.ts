@@ -50,3 +50,11 @@ export const LoginDataSchema = z.object({
 })
 
 export type LoginDataType = z.infer<typeof LoginDataSchema>;
+
+export const AvatarSchema = z.object({
+    size: z.enum(["sm", "md", "lg"]),
+    name: z.string(),
+    vorname: z.string(),
+});
+
+export type AvatarType = z.infer<typeof AvatarSchema>;
