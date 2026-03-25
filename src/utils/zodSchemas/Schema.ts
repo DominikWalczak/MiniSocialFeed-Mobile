@@ -80,3 +80,10 @@ export const ButtonSchema = z.object({
 });
 
 export type ButtonType = z.infer<typeof ButtonSchema>;
+
+export const AlertSchema = z.object({
+    type: z.enum(["success", "error", "info"]),
+    text: z.string()
+});
+
+export type AlertType = z.infer<typeof AlertSchema>;
