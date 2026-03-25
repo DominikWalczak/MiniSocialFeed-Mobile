@@ -27,7 +27,6 @@ const PostSite = () => {
       },
     }, PostListSchema)
   },
-  enabled: true
   });
   const { t } = useTranslation();
 

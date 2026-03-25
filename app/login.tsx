@@ -4,7 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 import { useMutation } from '@tanstack/react-query';
 import { Controller, useForm } from "react-hook-form";
 import { useTranslation } from 'react-i18next';
-import { Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Alert, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
 type FormInput = {
   email: string, 
@@ -57,7 +57,7 @@ export default function Login() {
       navigation.navigate('User');
     },
     onError: (error) => {
-      console.log(error);
+      Alert.alert('Błąd', error.message);
     }
   })
 

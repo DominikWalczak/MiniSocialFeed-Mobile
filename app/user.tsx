@@ -27,7 +27,6 @@ export default function User() {
           },
         }, UserMeSchema);
       },
-      enabled: true,
     });
   // zmienne tekstowe zależne od wybranego języka przez użytkownika 
   const { t } = useTranslation();
