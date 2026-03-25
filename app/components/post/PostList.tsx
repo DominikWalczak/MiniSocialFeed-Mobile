@@ -12,7 +12,7 @@ const PostList = ({ data }: { data: PostListType }) => {
   const { t } = useTranslation();
 
   return (
-    <View className="flex-1 bg-[rgb(8,81,156)] w-full">
+    <View className="flex-1 bg-primary w-full">
       <FlashList
         data={data}
         renderItem={({ item }) => {

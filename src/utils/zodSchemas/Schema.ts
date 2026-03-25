@@ -17,11 +17,15 @@ export const PostItemSchema = z.object({
     authorId: z.number(),
     content: z.string(),
     createdAt: z.string().datetime(),
+    user: z.object({
+        name: z.string(),
+        vorname: z.string()
+    })
 });
 
-export type PostItemType = z.infer<typeof PostItemSchema>;
-
 export const PostListSchema = z.array(PostItemSchema);
+
+export type PostItemType = z.infer<typeof PostItemSchema>;
 
 export type PostListType = z.infer<typeof PostListSchema>;
 
@@ -62,3 +66,17 @@ export const AvatarSchema = z.object({
 });
 
 export type AvatarType = z.infer<typeof AvatarSchema>;
+
+export const SpinnerSchema = z.string();
+
+export type SpinnerType = z.infer<typeof SpinnerSchema>;
+
+export const ButtonSchema = z.object({
+    variant: z.enum(["primary", "secondary", "danger"]),
+    size: z.enum(["sm", "md", "lg"]),
+    content: z.string(),
+    isLoading: z.boolean().default(false),
+    disabled: z.boolean().default(false),
+});
+
+export type ButtonType = z.infer<typeof ButtonSchema>;
